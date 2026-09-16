@@ -1147,7 +1147,7 @@ footer p {
           <h3>Birthday</h3>
           <p>Make their day unforgettable with personalized surprises and sweet tokens of joy.</p>
         </div>
-        <button onclick="showMessage('Birthday', '🎂', 'Make Their Special Day Unforgettable', ['Custom Engraved Keepsakes', 'Artisanal Birthday Cake Boxes', 'Deluxe Surprise Gift Bundles'])">Discover <span>→</span></button>
+        <button onclick="window.location.href='birthday.html'">Discover <span>→</span></button>
       </article>
 
       <article class="occasion-card reveal delay-2">
@@ -1156,7 +1156,7 @@ footer p {
           <h3>Anniversary</h3>
           <p>Celebrate every beautiful moment together with elegant and romantic keepsakes.</p>
         </div>
-        <button onclick="showMessage('Anniversary', '💍', 'Celebrate Everlasting Love', ['Matching Custom Timepieces', 'Romantic Dinner & Memory Box', 'Personalized Star Maps'])">Discover <span>→</span></button>
+        <button onclick="window.location.href='anniversary.html'">Discover <span>→</span></button>
       </article>
 
       <article class="occasion-card reveal delay-3">
@@ -1165,35 +1165,9 @@ footer p {
           <h3>Valentine's Day</h3>
           <p>Find a gift straight from the heart that expresses love in every single detail.</p>
         </div>
-        <button onclick="showMessage('Valentine’s Day', '❤️', 'Straight From the Heart', ['Handcrafted Rose Collections', 'Custom Love Letter Lockets', 'Gourmet Chocolate & Wine Sets'])">Discover <span>→</span></button>
+        <button onclick="window.location.href='valentines.html'">Discover <span>→</span></button>
       </article>
 
-      <article class="occasion-card reveal delay-4">
-        <div>
-          <div class="icon">💒</div>
-          <h3>Wedding</h3>
-          <p>Thoughtful gifts for a new beginning and memories that last a lifetime.</p>
-        </div>
-        <button onclick="showMessage('Wedding', '💒', 'Memories for a New Beginning', ['Custom Monogrammed Home Decor', 'Luxury Honeymoon Essentials', 'Champagne & Crystal Flutes Set'])">Discover <span>→</span></button>
-      </article>
-
-      <article class="occasion-card reveal delay-5">
-        <div>
-          <div class="icon">🎉</div>
-          <h3>Coming of Age</h3>
-          <p>Mark a milestone step into the future with inspiring and celebratory gifts.</p>
-        </div>
-        <button onclick="showMessage('Coming of Age', '🎉', 'Mark a Milestone Moment', ['Personalized Journal & Pen Sets', 'Tech & Lifestyle Gift Crates', 'Custom Keepsake Jewelry'])">Discover <span>→</span></button>
-      </article>
-
-      <article class="occasion-card reveal delay-6">
-        <div>
-          <div class="icon">🎁</div>
-          <h3>More Occasions</h3>
-          <p>Discover handpicked gifts for graduations, promotions, and everyday wins.</p>
-        </div>
-        <button onclick="showMessage('More Occasions', '🎁', 'Celebrate Life’s Every Moment', ['Thank You Deluxe Baskets', 'Graduation Success Kits', 'Custom Congratulatory Hampers'])">Discover <span>→</span></button>
-      </article>
     </div>
   </section>
 
@@ -1261,6 +1235,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStatsCounter();
   initHeroParallax();
   initConfettiCanvas();
+  initBgParticles();
   initModalListeners();
 });
 
@@ -1536,6 +1511,71 @@ function renderConfetti() {
   } else {
     animationFrameId = null;
   }
+}
+
+/* ==========================================================================
+   7. Ambient Floating Background Particles
+   ========================================================================== */
+function initBgParticles() {
+  const canvas = document.getElementById("bg-particles-canvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
+
+  window.addEventListener("resize", () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const particles = [];
+  const particleCount = 45;
+  const colors = ["rgba(227, 109, 79, 0.45)", "rgba(247, 163, 130, 0.5)", "rgba(255, 200, 150, 0.4)", "rgba(210, 95, 69, 0.35)"];
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius: Math.random() * 2.5 + 1,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vy: -(Math.random() * 0.4 + 0.15),
+      vx: (Math.random() - 0.5) * 0.25,
+      alpha: Math.random() * 0.6 + 0.2,
+      pulseSpeed: Math.random() * 0.01 + 0.005,
+      pulseFactor: Math.random() * Math.PI
+    });
+  }
+
+  function animateBgParticles() {
+    ctx.clearRect(0, 0, width, height);
+
+    particles.forEach(p => {
+      p.y += p.vy;
+      p.x += p.vx;
+      p.pulseFactor += p.pulseSpeed;
+
+      if (p.y < -10) p.y = height + 10;
+      if (p.x < -10) p.x = width + 10;
+      if (p.x > width + 10) p.x = -10;
+
+      const currentAlpha = Math.max(0.1, p.alpha + Math.sin(p.pulseFactor) * 0.25);
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = currentAlpha;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = p.color;
+      ctx.fill();
+      ctx.restore();
+    });
+
+    requestAnimationFrame(animateBgParticles);
+  }
+
+  animateBgParticles();
 }
 
 // Smooth scroll logic for navigation buttons
