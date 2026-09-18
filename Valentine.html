@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoveNest | Valentine's Gift Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <a href="#home" class="logo">❤️ LoveNest</a>
+  <nav><a href="index.html">Home</a><a href="#categories">Categories</a><a href="#products">Gifts</a><a href="#about">About</a></nav>
+  <div class="nav-actions">
+    <button id="wishlistBtn">♡ <span id="wishlistCount">0</span></button>
+    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">VALENTINE'S DAY COLLECTION</span>
+    <h1>Give Love.<br><span>Give a Memory.</span></h1>
+    <p>Beautiful gifts, greeting cards, flowers and sweet surprises for the special people in your life.</p>
+    <a href="#products" class="primary-btn">Shop Now ❤️</a>
+  </div>
+  <div class="hero-art"><div class="heart">♥</div><div class="gift">🎁</div><div class="rose">🌹</div><div class="card">💌</div></div>
+</section>
+
+<section id="categories" class="section">
+  <div class="heading"><span>EXPLORE</span><h2>Shop by Category</h2><p>Find something that speaks from the heart.</p></div>
+  <div class="categories">
+    <button class="category-card" data-category="Gifts"><span>🎁</span><b>Gifts</b><small>Sweet surprises</small></button>
+    <button class="category-card" data-category="Cards"><span>💌</span><b>Greeting Cards</b><small>Words from the heart</small></button>
+    <button class="category-card" data-category="Flowers"><span>🌹</span><b>Flowers</b><small>Fresh romance</small></button>
+    <button class="category-card" data-category="Chocolates"><span>🍫</span><b>Chocolates</b><small>Love in every bite</small></button>
+    <button class="category-card" data-category="Teddy"><span>🧸</span><b>Teddy Bears</b><small>Hugs that last</small></button>
+  </div>
+</section>
+
+<section id="products" class="section products">
+  <div class="heading"><span>OUR COLLECTION</span><h2>Valentine's Bestsellers</h2><p>Choose a gift and make someone's day unforgettable.</p></div>
+  <div class="toolbar">
+    <div class="search"><input id="searchInput" placeholder="Search gifts, cards, flowers..."><span>🔍</span></div>
+    <select id="categoryFilter">
+      <option value="All">All Categories</option><option value="Gifts">Gifts</option><option value="Cards">Greeting Cards</option>
+      <option value="Flowers">Flowers</option><option value="Chocolates">Chocolates</option><option value="Teddy">Teddy Bears</option>
+    </select>
+  </div>
+  <div id="productGrid" class="product-grid"></div>
+  <p id="noProducts" class="no-products hidden">No products found. Try another search.</p>
+</section>
+
+<section class="love-banner">
+  <div><span>MAKE IT PERSONAL</span><h2>A little gift can say a thousand words.</h2><p>Add a greeting card and write your own message at checkout.</p></div>
+  <a href="#products" class="light-btn">Find a Gift 💕</a>
+</section>
+
+<section id="about" class="section about">
+  <div><span>WHY LOVENEST?</span><h2>Made for moments that matter.</h2></div>
+  <div class="features"><div><b>🎀 Thoughtful</b><p>Curated gifts for every kind of love.</p></div><div><b>💌 Personal</b><p>Add your own message.</p></div><div><b>🎁 Easy Shopping</b><p>Simple cart and checkout experience.</p></div></div>
+</section>
+</main>
+
+<footer><div><strong>❤️ LoveNest</strong><p>Gifts made with love.</p></div><p>© 2026 LoveNest Valentine's Store</p></footer>
+
+<div id="overlay" class="overlay"></div>
+<aside id="cartPanel" class="side-panel"><div class="panel-head"><h2>Your Cart</h2><button class="close-panel">×</button></div><div id="cartItems"></div><div class="cart-total"><span>Total</span><strong id="cartTotal">₹0</strong></div><button id="checkoutBtn" class="primary-btn full">Proceed to Checkout</button></aside>
+
+<aside id="wishlistPanel" class="side-panel"><div class="panel-head"><h2>Your Wishlist</h2><button class="close-panel">×</button></div><div id="wishlistItems"></div></aside>
+
+<div id="checkoutModal" class="modal hidden"><div class="modal-card"><button id="closeCheckout" class="modal-close">×</button><h2>Complete Your Order 💕</h2><p>Enter your details and gift message.</p>
+<form id="checkoutForm">
+<div class="two"><label>Full Name<input required name="name"></label><label>Phone<input required name="phone"></label></div>
+<label>Email<input required type="email" name="email"></label><label>Delivery Address<textarea required name="address" rows="3"></textarea></label>
+<label>Gift Message<textarea name="message" rows="3" placeholder="Write a Valentine's message"></textarea></label>
+<label>Payment<select name="payment"><option>Cash on Delivery</option><option>UPI</option><option>Card</option></select></label>
+<button class="primary-btn full" type="submit">Place Order ❤️</button>
+</form></div></div>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
