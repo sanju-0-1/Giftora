@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giftora | Thoughtful Gifts for Every Milestone & Occasion</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="navbar.css">
   <style>
 * {
   box-sizing: border-box;
@@ -1077,19 +1083,33 @@ footer p {
 
   <div class="navbar-wrapper" id="navbar-wrapper">
     <nav class="navbar">
-      <a href="#home" class="logo">
-        <span class="logo-mark">G</span>
-        <span>Giftora</span>
+      <a href="index.html" class="logo" title="Giftora - Home">
+        <span class="logo-mark">🎁</span>
+        <span class="logo-text">Giftora</span>
       </a>
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#occasions">Occasions</a>
-        <a href="#featured">Featured</a>
-        <a href="#about">About</a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="birthday.html">Birthday Gifts</a>
+        <a href="anniversary.html">Anniversary</a>
+        <a href="Valentine.html">Valentine's Day</a>
       </div>
 
-      <a href="#occasions" class="nav-btn">Explore Gifts ✦</a>
+      <div class="nav-actions">
+        <button class="nav-action-btn wishlist-btn" id="wishlist-toggle-btn" title="View Wishlist" aria-label="Wishlist">
+          <i class="fa-solid fa-heart"></i>
+          <span class="nav-badge" id="wishlist-count">0</span>
+        </button>
+
+        <button class="nav-action-btn cart-btn" id="cart-toggle-btn" title="View Cart" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="nav-badge" id="cart-count">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </nav>
   </div>
 
@@ -1592,6 +1612,7 @@ document.querySelectorAll(".nav-links a, .nav-btn, .primary-btn, .secondary-btn"
   });
 });
   </script>
+  <script src="navbar.js"></script>
 </body>
 </html>
 

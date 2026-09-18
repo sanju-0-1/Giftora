@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="anniversary.css">
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
 
@@ -24,39 +25,38 @@
     </div>
 
     <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <span class="logo-heart"><i class="fa-solid fa-heart"></i></span>
-                <span class="logo-text">ForeverLove</span>
+    <div class="navbar-wrapper" id="navbar-wrapper">
+        <header class="navbar">
+            <a href="index.html" class="logo" title="Giftora Home">
+                <span class="logo-mark">🎁</span>
+                <span class="logo-text">Giftora</span>
                 <span class="logo-badge">Anniversary Edition</span>
             </a>
 
-            <nav class="nav-links" id="nav-links">
-                <a href="#hero" class="active">Home</a>
-                <a href="#milestones">Milestones</a>
-                <a href="#gifts-section">Gifts Collection</a>
-                <a href="#love-card-section">Love Note Generator</a>
-                <a href="#about-section">Why Us</a>
-            </nav>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="birthday.html">Birthday Gifts</a>
+                <a href="anniversary.html" class="active">Anniversary</a>
+                <a href="Valentine.html">Valentine's Day</a>
+            </div>
 
             <div class="nav-actions">
-                <button class="nav-btn wishlist-btn" id="wishlist-toggle-btn" title="View Wishlist">
+                <button class="nav-action-btn wishlist-btn" id="wishlist-toggle-btn" title="View Wishlist" aria-label="Wishlist">
                     <i class="fa-solid fa-heart"></i>
-                    <span class="badge" id="wishlist-count">0</span>
+                    <span class="nav-badge" id="wishlist-count">0</span>
                 </button>
 
-                <button class="nav-btn cart-btn" id="cart-toggle-btn" title="View Cart">
+                <button class="nav-action-btn cart-btn" id="cart-toggle-btn" title="View Cart" aria-label="Cart">
                     <i class="fa-solid fa-bag-shopping"></i>
-                    <span class="badge" id="cart-count">0</span>
+                    <span class="nav-badge" id="cart-count">0</span>
                 </button>
 
                 <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
-        </div>
-    </header>
+        </header>
+    </div>
 
     <!-- Hero Banner Section -->
     <section id="hero" class="hero-section">
@@ -409,6 +409,7 @@
     </footer>
 
     <!-- Script File -->
+    <script src="navbar.js"></script>
     <script src="anniversary.js"></script>
 </body>
 </html>

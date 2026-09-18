@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unique Birthday Gifts & Personalized Hampers | Gifthora</title>
-  <meta name="description" content="Discover unique, memorable, and personalized birthday gifts for him, her, kids, and friends at Gifthora. Free gift packaging & personalized greeting cards.">
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="birthday.css">
+  <link rel="stylesheet" href="navbar.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2228%22>🎁</text></svg>">
 </head>
 <body>
@@ -17,43 +22,38 @@
   </div>
 
   <!-- Main Navigation Header -->
-  <header class="site-header" id="siteHeader">
-    <div class="container nav-wrap">
-      <!-- Brand Logo -->
-      <a href="index.html" class="logo-link" title="Gifthora Home">
-        <div class="logo-icon">🎁</div>
-        <span class="logo-text">Gifthora</span>
+  <div class="navbar-wrapper" id="navbar-wrapper">
+    <header class="navbar">
+      <a href="index.html" class="logo" title="Giftora Home">
+        <span class="logo-mark">🎁</span>
+        <span class="logo-text">Giftora</span>
+        <span class="logo-badge">Birthday Edition</span>
       </a>
 
-      <!-- Navigation Links -->
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="birthday.html" class="active">Birthday Gifts</a></li>
-          <li><a href="anniversary.html">Anniversary</a></li>
-          <li><a href="Valentine.html">Valentine's Day</a></li>
-        </ul>
-      </nav>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="birthday.html" class="active">Birthday Gifts</a>
+        <a href="anniversary.html">Anniversary</a>
+        <a href="Valentine.html">Valentine's Day</a>
+      </div>
 
-      <!-- Header Actions: Search, Wishlist, Cart -->
       <div class="nav-actions">
-        <div class="search-container">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" class="search-input" placeholder="Search unique gifts..." aria-label="Search unique birthday gifts">
-        </div>
-
-        <button class="action-btn" id="wishlistBtn" title="View Wishlist" aria-label="Wishlist">
-          ♥
-          <span class="badge-count" id="wishlistBadge">0</span>
+        <button class="nav-action-btn wishlist-btn" id="wishlistBtn" title="View Wishlist" aria-label="Wishlist">
+          <i class="fa-solid fa-heart"></i>
+          <span class="nav-badge" id="wishlistBadge">0</span>
         </button>
 
-        <button class="action-btn" id="cartBtn" title="View Gift Cart" aria-label="Cart">
-          🛍️
-          <span class="badge-count" id="cartBadge">0</span>
+        <button class="nav-action-btn cart-btn" id="cartBtn" title="View Cart" aria-label="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="nav-badge" id="cartBadge">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
         </button>
       </div>
-    </div>
-  </header>
+    </header>
+  </div>
 
   <!-- Hero Section -->
   <section class="birthday-hero" id="birthdayHero">
@@ -503,6 +503,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="navbar.js"></script>
   <script src="birthday.js"></script>
 </body>
 </html>

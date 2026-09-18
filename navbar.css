@@ -1,0 +1,253 @@
+/* ==========================================================================
+   GIFTHORA - UNIFIED NAVBAR STYLES
+   ========================================================================== */
+
+/* Navbar Wrapper */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(227, 109, 79, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.navbar-wrapper.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 30px rgba(227, 109, 79, 0.12);
+}
+
+/* Inner Navbar Container */
+.navbar {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Brand Logo */
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+  transform: translateY(-1px);
+}
+
+.navbar .logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px 12px 12px 4px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  background: linear-gradient(135deg, #e36d4f, #d25f45);
+  box-shadow: 0 4px 12px rgba(227, 109, 79, 0.3);
+  color: #ffffff;
+  transform: rotate(-4deg);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar .logo:hover .logo-mark {
+  transform: rotate(4deg) scale(1.08);
+}
+
+.navbar .logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #241d1a;
+  font-family: 'Playfair Display', 'Outfit', 'Segoe UI', sans-serif;
+  letter-spacing: -0.3px;
+}
+
+.navbar .logo-badge {
+  background: linear-gradient(135deg, #fff0f3, #ffe3e8);
+  color: #e36d4f;
+  border: 1px solid rgba(227, 109, 79, 0.25);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Navigation Links */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links a {
+  text-decoration: none;
+  color: #4a3e39;
+  font-size: 15px;
+  font-weight: 600;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+  font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  white-space: nowrap;
+}
+
+.navbar .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #e36d4f, #ff8c73);
+  border-radius: 4px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar .nav-links a:hover {
+  color: #e36d4f;
+}
+
+.navbar .nav-links a:hover::after,
+.navbar .nav-links a.active::after {
+  width: 100%;
+}
+
+.navbar .nav-links a.active {
+  color: #e36d4f;
+  font-weight: 700;
+}
+
+/* Navbar Action Buttons */
+.navbar .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar .nav-action-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #f0e6df;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #3c281e;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  outline: none;
+}
+
+.navbar .nav-action-btn:hover {
+  background: #fff0eb;
+  border-color: #e36d4f;
+  color: #e36d4f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(227, 109, 79, 0.2);
+}
+
+.navbar .nav-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: linear-gradient(135deg, #e36d4f, #d25f45);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 5px rgba(227, 109, 79, 0.4);
+}
+
+/* Mobile Hamburger Button */
+.navbar .mobile-menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff0eb;
+  border: none;
+  color: #e36d4f;
+  font-size: 19px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.navbar .mobile-menu-btn:hover {
+  background: #e36d4f;
+  color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 868px) {
+  .navbar .mobile-menu-btn {
+    display: flex;
+  }
+
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 16px 24px;
+    gap: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(227, 109, 79, 0.15);
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+
+  .navbar .nav-links.show {
+    display: flex;
+  }
+
+  .navbar .nav-links a {
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #f7eeea;
+  }
+
+  .navbar .nav-links a::after {
+    display: none;
+  }
+
+  .navbar .logo-badge {
+    display: none;
+  }
+}

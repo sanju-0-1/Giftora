@@ -3,18 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LoveNest | Valentine's Gift Store</title>
+<title>Giftora | Valentine's Gift Store</title>
+<!-- Fonts & Icons -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="valentine.css">
+<link rel="stylesheet" href="navbar.css">
 </head>
 <body>
-<header class="navbar">
-  <a href="#home" class="logo">❤️ LoveNest</a>
-  <nav><a href="index.html">Home</a><a href="#categories">Categories</a><a href="#products">Gifts</a><a href="#about">About</a></nav>
-  <div class="nav-actions">
-    <button id="wishlistBtn">♡ <span id="wishlistCount">0</span></button>
-    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
-  </div>
-</header>
+<div class="navbar-wrapper" id="navbar-wrapper">
+  <header class="navbar">
+    <a href="index.html" class="logo" title="Giftora Home">
+      <span class="logo-mark">🎁</span>
+      <span class="logo-text">Giftora</span>
+      <span class="logo-badge">Valentine's Edition</span>
+    </a>
+
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="birthday.html">Birthday Gifts</a>
+      <a href="anniversary.html">Anniversary</a>
+      <a href="Valentine.html" class="active">Valentine's Day</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="nav-action-btn wishlist-btn" id="wishlistBtn" title="View Wishlist" aria-label="Wishlist">
+        <i class="fa-solid fa-heart"></i>
+        <span class="nav-badge" id="wishlistCount">0</span>
+      </button>
+
+      <button class="nav-action-btn cart-btn" id="cartBtn" title="View Cart" aria-label="Cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="nav-badge" id="cartCount">0</span>
+      </button>
+
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+</div>
 
 <main>
 <section id="home" class="hero">
@@ -78,6 +108,7 @@
 <button class="primary-btn full" type="submit">Place Order ❤️</button>
 </form></div></div>
 <div id="toast" class="toast"></div>
+<script src="navbar.js"></script>
 <script src="valentine.js"></script>
 </body>
 </html>
